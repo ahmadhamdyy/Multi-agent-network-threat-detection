@@ -1,0 +1,9 @@
+langchain
+langchain-community
+langchain-groq
+langgraph
+sqlalchemy
+python-dotenv
+requests
+duckduckgo_search
+typing_extensions
