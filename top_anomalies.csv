@@ -1,0 +1,6 @@
+rank,anomaly_score,ip_address,user_id,country,device_type,login_successful,is_attack_ip,is_account_takeover,rtt_ms,timestamp
+1,0.083647,10.0.56.227,-5161508772571294435,NO,tablet,True,False,False,641.0,2020-02-09 00:06:47.378
+2,0.080519,46.212.102.126,-7513799941243224481,NO,tablet,True,False,False,1595.0,2020-02-03 20:25:39.951
+3,0.079872,84.208.39.46,2303894224040698579,NO,tablet,True,False,False,774.0,2020-02-09 16:17:01.511
+4,0.079588,51.175.141.115,-4324475583306591935,NO,tablet,False,False,False,678.0,2020-02-11 04:57:27.170
+5,0.078599,185.113.56.19,3544143167053441422,IR,tablet,True,False,False,,2020-02-09 22:42:44.166

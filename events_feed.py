@@ -132,5 +132,23 @@ def _map_row_to_event(row: Dict[str, str]) -> Event:
 
 def event_stream(limit: int | None = None):
     """Yield up to *limit* RBA login events (or all rows if None)."""
+    enable_ml = os.getenv("ENABLE_ML_ANOMALY", "0").strip() == "1"
+    anomaly_threshold = float(os.getenv("ANOMALY_THRESHOLD", "0.0"))
+    model_path = os.getenv("ANOMALY_MODEL_PATH", "").strip() or os.path.join(
+        os.path.dirname(__file__), "data", "anomaly_model.joblib"
+    )
+
+    detector = None
+    if enable_ml:
+        # Lazy import so the repo still runs without ML deps when ML is disabled.
+        from ml_anomaly import load as load_anomaly_model
+
+        detector = load_anomaly_model(model_path)
+
     for row in _iter_rba_csv_rows(limit=limit):
-        yield _map_row_to_event(row)
+        evt = _map_row_to_event(row)
+        if detector is not None:
+            score = float(detector.score_event(evt))
+            evt["ml_anomaly_score"] = score
+            evt["ml_is_anomaly"] = bool(score >= anomaly_threshold)
+        yield evt

@@ -1,0 +1,17 @@
+{
+  "total_rows": 100000,
+  "total_anomalies": 0,
+  "anomaly_rate": 0.0,
+  "score_stats": {
+    "min": -0.13943353095250072,
+    "max": 0.08364662401344453,
+    "mean": -0.0850080528684131,
+    "std": 0.03213772981555311,
+    "median": -0.09267643807684306
+  },
+  "ground_truth": {
+    "attack_ips": 9982,
+    "takeovers": 1
+  },
+  "top_anomaly_count": 5
+}

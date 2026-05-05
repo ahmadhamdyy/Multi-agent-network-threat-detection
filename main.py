@@ -22,6 +22,7 @@ SYSTEM_PROMPT = SystemMessage(
     content=(
         "You are a cybersecurity orchestrator with these tools:\n"
         "• event_analysis(event) – always run first; returns risk_score and reasons.\n"
+        "• (Input events may include ml_is_anomaly/ml_anomaly_score from a lightweight ML pre-screener; treat this as extra signal.)\n"
         "• sql_lookup(ip, username?) – summarize login history context.\n"
         "• threat_intel(ip) – AbuseIPDB reputation for the IP.\n"
         "• web_search(ip?, abuse_score?, threat_signature?, cve_ids?) – public references.\n"
@@ -79,8 +80,8 @@ if __name__ == "__main__":
 
     # Compare these 3 models.
     MODEL_NAMES = [
-        "openai/gpt-oss-120b",
-        "llama-3.1-8b-instant",
+        # "openai/gpt-oss-120b",
+        # "llama-3.1-8b-instant",
         "qwen/qwen3-32b",
     ]
 

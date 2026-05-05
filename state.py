@@ -34,3 +34,7 @@ class Event(TypedDict):
     threat_signature: NotRequired[str]  # IDS/IPS signature ("" if none)
     bytes_sent: NotRequired[int]
     bytes_received: NotRequired[int]
+
+    # --- Optional ML pre-screen fields (anomaly detector) ---
+    ml_anomaly_score: NotRequired[float]  # higher => more anomalous (model-specific scale)
+    ml_is_anomaly: NotRequired[bool]

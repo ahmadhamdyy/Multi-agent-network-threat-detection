@@ -7,3 +7,6 @@ python-dotenv
 requests
 duckduckgo_search
 typing_extensions
+numpy
+scikit-learn
+joblib
